@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nedha_yt/data/datas.dart';
 import 'package:nedha_yt/theme/color.dart';
+import 'package:nedha_yt/ui/detail_page.dart';
 import 'package:nedha_yt/ui/widgets/category_item.dart';
 import 'package:nedha_yt/ui/widgets/food_item.dart';
 import 'package:nedha_yt/ui/widgets/food_list_item.dart';
@@ -106,7 +107,15 @@ class HomePage extends StatelessWidget {
                   final model = foods[index];
 
                   // Food item widget
-                  return FoodItem(model: model);
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => DetailPage(food: model),
+                          ),
+                        );
+                      },
+                      child: FoodItem(model: model));
                 },
               ),
             ),
@@ -136,7 +145,15 @@ class HomePage extends StatelessWidget {
 
                   final model = noodles[index];
                   // Food list item widget
-                  return FoodListItem(model: model);
+                  return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (ctx) => DetailPage(food: model),
+                          ),
+                        );
+                      },
+                      child: FoodListItem(model: model));
                 },
               ),
             ),

@@ -16,11 +16,14 @@ class FoodListItem extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
-            child: CachedNetworkImage(
-              imageUrl: model.imageUrl,
-              width: 64,
-              height: 64,
-              fit: BoxFit.cover,
+            child: Hero(
+              tag: model.id,
+              child: CachedNetworkImage(
+                imageUrl: model.imageUrl,
+                width: 64,
+                height: 64,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           const SizedBox(width: 8),

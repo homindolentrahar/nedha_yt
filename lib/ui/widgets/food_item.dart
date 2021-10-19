@@ -34,11 +34,14 @@ class FoodItem extends StatelessWidget {
                     end: Alignment.topCenter,
                   ).createShader(rect),
                   blendMode: BlendMode.srcATop,
-                  child: CachedNetworkImage(
-                    imageUrl: model.imageUrl,
-                    width: 176,
-                    height: 176,
-                    fit: BoxFit.cover,
+                  child: Hero(
+                    tag: model.id,
+                    child: CachedNetworkImage(
+                      imageUrl: model.imageUrl,
+                      width: 176,
+                      height: 176,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
